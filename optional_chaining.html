@@ -1,0 +1,41 @@
+<html>
+    <body>
+        
+    </body>
+    <script>
+        class Pessoa {
+            #humor = null // # indica que a propriedade é private
+            #mensagens = [
+                'Seja Feliz!',
+                'Não estou pra conversa!'
+            ]
+            constructor(nome){
+                this.nome = nome
+                this.#mudarHumor()
+            }
+
+            dizerOi(){
+                return `Olá! Meu nome é ${this.nome}.`
+            }
+
+            getHumor(){
+                return this.#humor
+            }
+
+            #mudarHumor(){ // # indica que o método é private
+                this.#humor = Math.floor(Math.random() * 2)  
+            }
+
+            getMensagem(){
+                return this.#mensagens[this.#humor]
+            }
+        }
+
+        let p = new Pessoa('Tiago')
+        
+        console.log(p.dizerOi())
+        console.log(p.nome)
+        console.log(p.getHumor())
+        console.log(p.getMensagem())
+    </script>
+</html>
