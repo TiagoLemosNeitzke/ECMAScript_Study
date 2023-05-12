@@ -1,0 +1,63 @@
+<html>
+    <body>
+        <p>Contador de piadas interativo</p>
+        
+        <script>
+           
+            function* conversar(){
+                let opcao = yield 'E ai? Tudo bem?'
+
+                if(opcao === 'sim'){
+                    opcao = yield 'Ótimo! Como posso te ajudar? Quer que eu conte uma piada?'
+
+                    if(opcao == 'sim'){
+
+                       fetch('dados/piadas.json')
+                        .then(response => response.json())
+                        .then(piadas => {
+                            piada = piadas[Math.floor(Math.random() * 10)]
+                            console.log(piada.piada)
+
+                            setTimeout(() => {
+                                console.log(piada.resposta)
+                                console.log('Atendimento finalizado')
+                            }, 2000)                          
+                                
+                        })
+
+                    }else{
+                        yield 'Atendimento finalizado.'
+                    }
+
+                }else{
+                    yield 'Poxa que pena!'
+
+                    yield 'Atendimento finalizado.'
+                }
+
+            }
+
+            let conversa = conversar()
+
+            function acao(){
+
+                let resposta = document.getElementById('resposta').value
+                
+                iteracao = conversa.next(resposta)
+
+                console.log(iteracao)
+
+                if(iteracao.done){
+                    document.getElementById('avancar').style.display = "none"
+                }
+
+            }
+        </script>
+
+
+        <div>
+            <label for="resposta">Resposta: </label><input type="text" id="resposta"><br>
+            <button id="avancar" type="button" onclick="acao()">Avançar</button>
+        </div>
+    </body>
+</html>

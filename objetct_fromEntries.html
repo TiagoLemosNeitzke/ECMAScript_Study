@@ -1,0 +1,26 @@
+<html>
+
+<body>
+    <script>
+        // permite converter uma array em um object, para que funcione o array precisa ter [['chave', 'valor']]
+        let arr = [
+            [
+                'nome', 'Mario Morietes Marialvo'
+            ],
+            [
+                'profissional', [
+                    'site', 'site.com'
+                ],
+                ['profissão', 'programador']
+            ],
+            [
+                'pais', 'Brasil'
+            ]
+        ]
+
+        console.log(arr)
+        console.log(Object.fromEntries(arr))
+    </script>
+</body>
+
+</html>

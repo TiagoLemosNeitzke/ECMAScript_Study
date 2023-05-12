@@ -1,0 +1,24 @@
+<html>
+
+<body>
+
+    <script>
+        let arr = [
+        'João,José,Maria',
+        'Sandra,Paulo',
+        'Antônia,Fernanda,Marcos'
+        ]
+
+        console.log(arr)
+        console.log(arr.map(item => { // gera um array de arrays
+            return item.split(',')
+        }))
+        console.log(arr.flatMap(item => { //assim gera um array com tudo no primeiro nível
+            return item.split(',')
+        }))
+
+    </script>
+
+</body>
+
+</html>

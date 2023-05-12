@@ -1,0 +1,67 @@
+<html>
+
+<body>
+
+    <script>
+        //permite a análise dos descritores de propriedades
+        let objeto = {
+            nome: 'Celso',
+            profissional: {
+                site: 'site.com.br',
+                profissao: 'Atoa'
+            },
+            hobbies: [
+                {
+                    id: 1,
+                    hobbie: 'dormir'
+                },
+                {
+                    id: 2,
+                    hobbie: 'Gastar dinheiro'
+                }
+            ],
+            pais: 'Brasil'
+        }
+
+        console.log(objeto)
+        //descritores de propriedades
+
+        console.log(Object.getOwnPropertyDescriptors(objeto))
+
+        console.log('---------------writable-----------------')
+        //descritor writable. Quando for false indica que o valor da propriedade não pode ser modificada
+        Object.defineProperty(objeto, 'nome', {
+            value: 'celso',
+            writable: false
+        })
+        console.log(Object.getOwnPropertyDescriptors(objeto))
+
+        console.log('---------------enumerable-----------------')
+
+        //descritor enumerable. Quando for false a propriedade em questão não será exibida em laços de repetição
+        for (let prop in objeto) {
+            console.log(prop, objeto[prop])
+        }
+
+        Object.defineProperty(objeto, 'profissional', {
+            value: 'profissional',
+            enumerable: false
+        })
+        console.log('-------------testando: agora não exibe profissional ------------------------------ ')
+        for (let prop in objeto) {
+            console.log(prop, objeto[prop])
+        }
+
+        console.log('---------------configurable-----------------')
+        //descritor configurable. Quando for false indica que a propriedade não pode ser apagada e não pode mais modificar os descritores exeto writable para flase
+        Object.defineProperty(objeto, 'pais', {
+            value: 'pais',
+            configurable: false
+        })
+        console.log(Object.getOwnPropertyDescriptors(objeto))
+
+    </script>
+
+</body>
+
+</html>

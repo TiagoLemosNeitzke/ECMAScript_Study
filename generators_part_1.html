@@ -1,0 +1,21 @@
+<html>
+    <body>
+        
+        <script>
+            function* testeGenerator(){ // o * na frente de function transforma a function em generator
+                console.log('Teste 1');
+               yield console.log('Teste 2'); // yield diz até onde executar a function, porém o object iterator fica aguardando a instrução para executar as demais linhas
+                console.log('Teste 3');
+
+                return 'Teste 4';
+            }
+
+            let meuGenerator = testeGenerator() //Ao executar uma function generator a var recebe um object iterator;
+            console.log(meuGenerator)
+            meuGenerator.next() // next() executa a function, se não tiver e instrução yield, executa toda a function
+            console.log("executou o resto do código")
+            meuGenerator.next()
+            console.log(meuGenerator.next())
+        </script>
+    </body>
+</html>

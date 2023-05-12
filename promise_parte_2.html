@@ -1,0 +1,63 @@
+<html>
+
+<body>
+
+    <script>
+
+        let promessa = new Promise((resolve, reject) => {
+            /*try{
+                
+            }catch(e){}*/
+
+            // requisição http
+            setTimeout(() => {
+                let resposta_da_requisicao = {}
+
+                // supondo que ouve um erro na requisição
+                if(false){
+                    
+                    resposta_da_requisicao = {
+                        codigo: 1050,
+                        erro: 'Falha na requisição',
+                    }
+                    
+                    reject(resposta_da_requisicao) // parametros do reject só podem ser capturados por catch
+                }
+
+                resposta_da_requisicao = {
+                    0: {
+                        id: 1,
+                        name: 'João'
+                    },
+                    1: {
+                            id: 2,
+                                name: 'Jonas'
+                        },
+                    2: {
+                            id: 3,
+                                name: 'Joab'
+                        }
+                }
+                
+                resolve(resposta_da_requisicao)
+
+                
+            }, 3000)
+        }).then(dados => { // posso ter vários .then eu precisar, dados representa o retorno de promessa
+            console.log('operação sequêncial', dados)
+            return 'aqui posso passar algo para o próximo then'
+        }).then(retornoThenAnterior => {
+            console.log('Console do último then ||||',retornoThenAnterior)
+            return 'retorno se não tiver nada no catch será usado'
+        }).catch(erro => {
+            console.log('catch recupera parâmetros do reject', erro)
+            //posso ter um return para enviar dados ao then seguinte ao catch
+            return 'retorno do catch'
+        }).then(retorno => {
+            console.log('then depois do catch |||', retorno)
+        })
+    </script>
+
+</body>
+
+</html>

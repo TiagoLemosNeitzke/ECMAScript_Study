@@ -1,0 +1,40 @@
+<html>
+
+<body>
+
+    <script>
+        //transforma um objeto em array
+        let objeto = {
+            nome:  'Celso',
+            profissional: {
+                site: 'site.com.br',
+                profissao: 'Atoa'
+            },
+            hobbies: [
+                {
+                    id: 1,
+                    hobbie: 'dormir'
+                },
+                {
+                    id: 2,
+                    hobbie: 'Gastar dinheiro'
+                }
+            ],
+            pais: 'Brasil'
+        }        
+
+        console.log(objeto)
+
+        let o = Object.values(objeto) // o retorno desta execução é um array, mas não muda pra array os objetos de dentro deste objeto
+        console.log(o)
+        console.log(o[2][0].hobbie)
+
+        //object entries
+        let t = Object.entries(objeto) // o retorno é tudo array
+        console.log(t)
+        console.log(t[2][0])
+    </script>
+    
+</body>
+
+</html>

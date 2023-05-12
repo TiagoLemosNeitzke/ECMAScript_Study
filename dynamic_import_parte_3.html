@@ -1,0 +1,33 @@
+<html>
+
+<body>
+    <button id="btnSaudacao">Saudação</button>
+    <p id="saudacao"></p>
+    <hr>
+    <input type="text" name="" id="cep">
+    <button id="btnCEP">Consultar CEP</button>
+    
+</body>
+<script type="module">
+    document.querySelector('#btnSaudacao').addEventListener('click', async () => {
+        const modulo = await import('./import/lib.mjs')
+        let p = document.getElementById('saudacao')
+        p.innerHTML = modulo.saudacao()
+    })
+
+    document.querySelector("#btnCEP").addEventListener('click', async () => {
+        let cep = document.getElementById('cep').value
+
+        if (cep.length == 8) {
+            const module = await import('./import/lib2.mjs')
+            module.getAddressByCEP(`${cep}`)
+                .then(response => console.log(response))
+        } else {
+            console.log('Digite Somente números')
+        }
+    })
+
+
+</script>
+
+</html>

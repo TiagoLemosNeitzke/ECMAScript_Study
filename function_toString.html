@@ -1,0 +1,25 @@
+<html>
+    <body>
+        <script>
+            class Carro {
+                constructor(marca,modelo,ano){
+                    this.marca = marca
+                    this.modelo = modelo
+                    this.ano = ano
+                }
+
+                toString(){
+                    return `Carro da marca: ${this.marca}, modelo: ${this.modelo}, ano: ${this.ano}`
+                }
+            }
+
+            let car = new Carro('Jeep', 'Compass', 2023)
+
+            console.log(car)
+            console.log(car.toString())
+
+            car = new Carro('Chevrolet', 'A10', 1981)
+            console.log(car.toString())
+        </script>
+    </body>
+</html>
