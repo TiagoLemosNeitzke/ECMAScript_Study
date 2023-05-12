@@ -1,0 +1,61 @@
+<html>
+
+<body>
+
+</body>
+<script>
+    // verifica se uma var tem um valor null ou undefined, se ela tiver um valor válido o valor que está sendo atribuido será descartado
+    
+    let t = null 
+    let t2 = 10 
+    let t3 = undefined 
+    
+
+    console.log(t)
+    console.log(t2)
+    console.log(t3)
+   
+
+    console.log('------------------??=---------------')
+    //usando o operador nullish coalescing ??
+    t ??= 'novo valor para null'
+    t2 ??= 50 // não vai atribuir pq já tem valor válido
+    t3 ??= 'novo valor para undefined'
+   
+
+    console.log(t)
+    console.log(t2)
+    console.log(t3)
+    
+    // usando em objetos
+    let Carro = {
+        marca: 'volks'
+    }
+
+    console.log(Carro.marca)
+
+    console.log('------------------??=---------------')
+
+    Carro.marca ??= 'chevy' // aqui não atribui valor, pq já possui um valor válido
+    console.log(Carro.marca, " não mudou o valor")
+
+    Carro.modelo ??= 'fusca' // aqui atribui valor pq não existe em carro, então é undefined
+    console.log(Carro.modelo)
+
+    console.log('------------------??=---------------')
+
+    //usando com array
+    let arr = [
+        'uva', 'dois', null, undefined, 5, []
+    ]
+
+     console.log(arr)
+
+    arr.forEach((item, indice) => {
+        arr[indice] ??= 'mudei o valor pq não era válido'
+    })
+
+    console.log(arr)
+</script>
+
+</html>
