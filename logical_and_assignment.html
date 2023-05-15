@@ -1,0 +1,62 @@
+<html>
+
+<body>
+
+</body>
+<script>
+    // verifica se uma var é verdadeira para então atribuir valor, se for true é não atribui valor
+
+    let t = 0 //false
+    let t2 = 1
+    
+
+
+    console.log(t)
+    console.log(t2)
+   
+
+    console.log('------------------&&=---------------')
+    //usando o operador or assignment &&=
+    t &&= 't1 é false, logo não será atribuido este valor'
+    t2 &&= 'atribui um novo valor se for true'
+    
+
+
+    console.log(t)
+    console.log(t2)
+    
+
+    console.log('--------usando em objetos-----------')
+
+    // usando em objetos
+    let Carro = {
+        marca: 'volks'
+    }
+
+    console.log(Carro.marca)
+
+    console.log('------------------&&=---------------')
+
+    Carro.marca ||= 'chevy' // aqui não atribui valor, pq já possui um valor válido
+    console.log(Carro.marca, " não mudou o valor")
+
+    Carro.modelo &&= 'fusca' // aqui atribui valor pq não existe em carro, então é undefined
+    console.log(Carro.modelo)
+
+    console.log('------------------&&=---------------')
+
+    //usando com array
+    let arr = [
+        'uva', 'dois', null, undefined, 5, []
+    ]
+
+    console.log(arr)
+
+    arr.forEach((item, indice) => {
+        arr[indice] &&= 'mudei o valor pq era true'
+    })
+
+    console.log(arr)
+</script>
+
+</html>
