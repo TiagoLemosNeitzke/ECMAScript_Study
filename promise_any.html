@@ -1,0 +1,46 @@
+<html>
+
+<body>
+
+</body>
+<script>
+    // o método any recebe um coleção de promises e dispara uma ação quando a primeira promise da coleção é resolvida.
+    
+    //se todas forem rejeitadas ele dispara um erro. Posso capturar o erro com catch()
+    //caught (in promise) AggregateError: All promises were rejected
+
+    const p = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            reject('primeira promise resolvida')
+        }, 3000)
+    })
+
+    const p1 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            reject('segunda promise resolvida')
+        }, 2000)
+    })
+
+    const p2 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve('terceira promise resolvida')
+        }, 4000)
+    })
+
+    let promises = [p, p1, p2]
+    /*
+        Como a segunda promise vai ser a primeira a ser resolvida, devido ao setTimout, ela será a que vai ser apresentada no console.log abaixo. 
+        As demais promises serão descartadas pelo método any()
+        Se a primeira promise a ser resolvida devolver um reject, o método any() vai ficar aguardando pelo resolve da pŕoxima promise, e assim sucessivamente
+
+    */
+    Promise.any(promises) // o retorno do método any() é um promise também
+        .then((resolvida) => {
+            console.log(resolvida)
+        })
+        .catch((erro) => {
+            console.log(erro)
+        })
+</script>
+
+</html>
