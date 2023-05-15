@@ -1,0 +1,35 @@
+<html>
+
+<body>
+
+</body>
+<script>
+    // resolve um comportamento inesperado ao usar o operador or ||
+    // o or usa o valor a esquerda só se o valor for válido
+    let t = null || 'valor a direita'
+    let t2 = 0 || 'valor a direita'
+    let t3 = undefined || 'valor a direita'
+    let t4 = '' || 'valor a direita'
+    // todos os valores acima serão descartados e vai usar o valor a direita
+
+    let t5 = 'valor válido' || 'valor a direita' // aqui usa o valor a esquerda, pois é um valor válido
+
+    console.log(t)
+    console.log(t2)
+    console.log(t3)
+    console.log(t4)
+
+    console.log('------------------??---------------')
+    //usando o operador nullish coalescing ??
+    t = null ?? 'valor a direita'
+    t2 = 0 ?? 'valor a direita' // vai usar o 0
+    t3 = undefined ?? 'valor a direita'
+    t4 = '' ?? 'valor a direita' // vai usar a string vazia
+
+    console.log(t)
+    console.log(t2)
+    console.log(t3)
+    console.log(t4)
+</script>
+
+</html>
