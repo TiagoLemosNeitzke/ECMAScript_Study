@@ -1,0 +1,76 @@
+<html>
+
+<body>
+
+</body>
+<script>
+    // verifica se uma var é false para então atribuir valor, se for true é não atribui valor
+
+    //false -> null, undefined, 0 , ''
+
+    let t = null //false
+    let t2 = 0 //false
+    let t3 = undefined //false
+    let t4 = '' //false
+    let t5 = 10
+    let t6 = 'uma string'
+
+
+    console.log(t)
+    console.log(t2)
+    console.log(t3)
+    console.log(t4)
+    console.log(t5)
+    console.log(t6)
+
+    console.log('------------------||=---------------')
+    //usando o operador or assignment ||=
+    t ||= 'novo valor para null'
+    t2 ||= 50 //novo valor para 0
+    t3 ||= 'novo valor para undefined'
+    t4 ||= 'novo valor para string vazia'
+    t5 ||= 'não atribui valor'
+    t6 ||= 'nã atribui valor'
+
+
+    console.log(t)
+    console.log(t2)
+    console.log(t3)
+    console.log(t4)
+    console.log(t5)
+    console.log(t6)
+
+    console.log('--------usando em objetos-----------')
+
+    // usando em objetos
+    let Carro = {
+        marca: 'volks'
+    }
+
+    console.log(Carro.marca)
+
+    console.log('------------------||=---------------')
+
+    Carro.marca ||= 'chevy' // aqui não atribui valor, pq já possui um valor válido
+    console.log(Carro.marca, " não mudou o valor")
+
+    Carro.modelo ||= 'fusca' // aqui atribui valor pq não existe em carro, então é undefined
+    console.log(Carro.modelo)
+
+    console.log('------------------||=---------------')
+
+    //usando com array
+    let arr = [
+        'uva', 'dois', null, undefined, 5, []
+    ]
+
+    console.log(arr)
+
+    arr.forEach((item, indice) => {
+        arr[indice] ||= 'mudei o valor pq não era válido'
+    })
+
+    console.log(arr)
+</script>
+
+</html>
