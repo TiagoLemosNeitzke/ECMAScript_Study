@@ -1,0 +1,38 @@
+<html>
+    <body>
+        
+    </body>
+    <script>
+        // permite usar _ como separador numérico para facilitar a leitura
+
+        //usando com int
+        let n = 1000000000000
+        console.log(n)
+        console.log('usando numeric separator')
+
+        let numeric_separator = 1_000_000_000_000
+        console.log(numeric_separator)
+
+        //usando com float
+        let float = 1_575_720.25
+        console.log(float)
+
+        //binários
+        let binario = 0b1010_1010_1010 // isso é igual a 2730
+        console.log(binario)
+
+        //hexadecimal
+        let hexadecimal = 0xa_b_c_d_e_f // isso é igual a 11259375
+        console.log(hexadecimal)
+        
+        //octal
+        let octal = 0o2_3_3_5 // isso é igual a 1245
+        console.log(octal)
+
+        /*--------restrições de uso
+        não pode usar __ dois numeric separator seguido
+        não pode iniciar com zero
+        não pode usar no final de um número
+        */
+    </script>
+</html>
